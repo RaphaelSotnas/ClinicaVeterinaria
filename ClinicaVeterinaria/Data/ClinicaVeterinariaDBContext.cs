@@ -1,9 +1,9 @@
-﻿using ClinicaVeterinaria.Data.Map;
-using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
+using ClinicaVeterinaria.Data.Map;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace ClinicaVeterinaria.Data
+namespace ClinicaVeterinaria.API.Data
 {
     public class ClinicaVeterinariaDBContext : DbContext
     {

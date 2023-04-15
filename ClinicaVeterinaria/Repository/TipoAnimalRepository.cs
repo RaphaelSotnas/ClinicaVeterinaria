@@ -1,9 +1,9 @@
-﻿using ClinicaVeterinaria.Data;
-using ClinicaVeterinaria.Models;
-using ClinicaVeterinaria.Repository.Interfaces;
+﻿using ClinicaVeterinaria.API.Data;
+using ClinicaVeterinaria.API.Models;
+using ClinicaVeterinaria.API.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClinicaVeterinaria.Repository
+namespace ClinicaVeterinaria.API.Repository
 {
     public class TipoAnimalRepository : ITipoAnimalRepository
     {

@@ -1,5 +1,7 @@
-﻿using ClinicaVeterinaria.Models;
-using ClinicaVeterinaria.Repository.Interfaces;
+﻿using ClinicaVeterinaria.API;
+using ClinicaVeterinaria.API.Models;
+using ClinicaVeterinaria.API.Repository.Interfaces;
+using ClinicaVeterinaria.API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +12,12 @@ namespace ClinicaVeterinaria.Controllers
     public class ClienteController : ControllerBase
     {
         private readonly IClienteRepository _clienteRepository;
-        public ClienteController(IClienteRepository clienteRepository)
+        private readonly IClienteService _clienteService;
+        public ClienteController(IClienteRepository clienteRepository,
+                                IClienteService clienteService)
         {
             _clienteRepository = clienteRepository;
+            _clienteService = clienteService;
         }
 
         [HttpGet]
@@ -30,10 +35,13 @@ namespace ClinicaVeterinaria.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ClienteModel>> CadastrarCliente([FromBody] ClienteModel clienteModel)
+        public async Task<ActionResult> CadastrarCliente([FromBody] ClienteModel clienteModel)
         {
-            var cliente = await _clienteRepository.CadastrarCliente(clienteModel);
-            return Ok(cliente);
+            var retorno = await _clienteService.CadastrarCliente(clienteModel);
+            if(retorno == true)
+                return Ok();
+
+            return BadRequest(new ResponseTeste{Mensagem = "Cliente já cadastrado no banco de dados."});
         }
 
         [HttpPut("{id}")]

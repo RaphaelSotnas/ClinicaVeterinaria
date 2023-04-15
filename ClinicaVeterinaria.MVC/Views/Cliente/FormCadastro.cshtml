@@ -1,0 +1,44 @@
+﻿@model ClinicaVeterinaria.MVC.Models.Entidades.Cliente
+
+@{
+    ViewData["Title"] = "Formulário de Cadastro";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cadastrar" asp-controller="Cliente" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeCliente" class="control-label">Nome Cliente</label>
+                <input asp-for="NomeCliente" name="NomeCliente" class="form-control" />
+                <span asp-validation-for="NomeCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CpfCliente" class="control-label">CPF</label>
+                <input asp-for="CpfCliente" name="CpfCliente" class="form-control" />
+                <span asp-validation-for="CpfCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" name="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Senha" class="control-label">Senha</label>
+                <input asp-for="Senha" type="password" name="Senha" class="form-control"/>
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar Cliente" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

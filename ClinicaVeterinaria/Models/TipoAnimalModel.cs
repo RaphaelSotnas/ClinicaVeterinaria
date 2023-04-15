@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace ClinicaVeterinaria.Models
+namespace ClinicaVeterinaria.API.Models
 {
     public class TipoAnimalModel
     {

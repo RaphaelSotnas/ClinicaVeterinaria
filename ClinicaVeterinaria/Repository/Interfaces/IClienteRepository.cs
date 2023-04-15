@@ -1,6 +1,7 @@
-﻿using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
 
-namespace ClinicaVeterinaria.Repository.Interfaces
+
+namespace ClinicaVeterinaria.API.Repository.Interfaces
 {
     public interface IClienteRepository
     {
@@ -9,5 +10,6 @@ namespace ClinicaVeterinaria.Repository.Interfaces
         Task<ClienteModel> CadastrarCliente(ClienteModel cliente);
         Task<bool> DeletarCliente(int idCliente);
         Task<ClienteModel> AtualizarCliente(ClienteModel clienteAtualizado, int idCliente);
+        Task<ClienteModel> VerificaExistenciaDoCliente(string? cpf);
     }
 }

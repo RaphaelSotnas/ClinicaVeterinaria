@@ -1,5 +1,5 @@
-﻿using ClinicaVeterinaria.Data;
-using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Data;
+using ClinicaVeterinaria.API.Models;
 using ClinicaVeterinaria.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

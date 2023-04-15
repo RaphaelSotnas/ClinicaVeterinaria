@@ -1,4 +1,4 @@
-﻿using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
 using ClinicaVeterinaria.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

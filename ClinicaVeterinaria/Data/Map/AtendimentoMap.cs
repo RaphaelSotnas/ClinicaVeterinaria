@@ -1,4 +1,4 @@
-﻿using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

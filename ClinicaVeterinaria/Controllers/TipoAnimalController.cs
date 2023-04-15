@@ -1,6 +1,5 @@
-﻿using ClinicaVeterinaria.Models;
-using ClinicaVeterinaria.Repository.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using ClinicaVeterinaria.API.Models;
+using ClinicaVeterinaria.API.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicaVeterinaria.Controllers

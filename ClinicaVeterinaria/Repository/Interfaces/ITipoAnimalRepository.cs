@@ -1,6 +1,7 @@
-﻿using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
 
-namespace ClinicaVeterinaria.Repository.Interfaces
+
+namespace ClinicaVeterinaria.API.Repository.Interfaces
 {
     public interface ITipoAnimalRepository
     {

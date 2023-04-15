@@ -1,4 +1,4 @@
-﻿using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
 
 namespace ClinicaVeterinaria.Repository.Interfaces
 {

@@ -1,4 +1,4 @@
-﻿using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,7 +12,7 @@ namespace ClinicaVeterinaria.Data.Map
             builder.Property(x => x.NomeVeterinario).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Geriatria).IsRequired();
             builder.Property(x => x.DataCadastro).IsRequired(); ;
-            builder.Property(x => x.DataContratacao).IsRequired(); ;
+            builder.Property(x => x.DataContratacao).IsRequired(); 
         }
     }
 }

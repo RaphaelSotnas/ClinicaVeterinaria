@@ -1,9 +1,9 @@
-﻿using ClinicaVeterinaria.Data;
-using ClinicaVeterinaria.Models;
+﻿using ClinicaVeterinaria.API.Models;
 using ClinicaVeterinaria.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ClinicaVeterinaria.API.Data;
 
-namespace ClinicaVeterinaria.Repository
+namespace ClinicaVeterinaria.API.Repository
 {
     public class AgendamentoRepository : IAgendamentoRepository
     {

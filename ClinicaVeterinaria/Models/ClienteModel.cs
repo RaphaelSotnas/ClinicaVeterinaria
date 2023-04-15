@@ -1,6 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ClinicaVeterinaria.API.Models;
+using ClinicaVeterinaria.Web.Enums;
+using System.ComponentModel.DataAnnotations;
 
-namespace ClinicaVeterinaria.Models
+namespace ClinicaVeterinaria.API.Models
 {
     public class ClienteModel
     {
@@ -11,8 +13,13 @@ namespace ClinicaVeterinaria.Models
 
         [Required]
         public string? CpfCliente { get; set; }
+        
+        [Required]
+        public string? Email { get; set; }
 
         [Required]
         public DateTime DataCadastro { get; set; }
-    } 
+
+        public string? Senha { get; set; }
+    }
 }
