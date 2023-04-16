@@ -15,24 +15,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Projetos\C#\ClinicaVeterinaria\ClinicaVeterinaria\ClinicaVeterinaria.MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Cliente/CadastrarCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3RyYXJDbGllbnRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Cliente/DeletarCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxEZWxldGFyQ2xpZW50ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Cliente/EditarCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0YXJDbGllbnRlLmNzaHRtbA==
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Animal/ListarMeusPets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXExpc3Rhck1ldXNQZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Cliente/FormCadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxGb3JtQ2FkYXN0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Cliente/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Shared/Componentes/Menu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudGVzXE1lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Shared/Error.cshtml]

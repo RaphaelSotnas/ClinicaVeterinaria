@@ -1,6 +1,7 @@
 ﻿using ClinicaVeterinaria.API.Models;
 using ClinicaVeterinaria.API.Repository.Interfaces;
 
+
 namespace ClinicaVeterinaria.API.Services
 {
     public class ClienteService : IClienteService
@@ -29,6 +30,30 @@ namespace ClinicaVeterinaria.API.Services
                 return true;
             }
             return false;
+        }
+
+        public async Task<string> LogarCliente(ClienteModel clienteModel)
+        {
+            ResponseMessage mensagemRetorno = new ResponseMessage();
+
+            var cliente = await _clienteRepository.BuscarClientePorCpf(clienteModel.CpfCliente);
+            if (cliente == null)
+                return mensagemRetorno.Mensagem = "Cliente inexistente";
+
+            if (clienteModel.Senha != cliente.Senha)
+                return mensagemRetorno.Mensagem = "Senha inválida";
+                
+            mensagemRetorno.Mensagem = $"{cliente.NomeCliente}";
+            return mensagemRetorno.Mensagem;
+        }
+
+        public async Task<ClienteModel> BuscarClientePorCpf(string cpfCliente)
+        {
+            var clienteDoBanco = await _clienteRepository.BuscarClientePorCpf(cpfCliente);
+            if (clienteDoBanco == null)
+                return null;
+
+            return clienteDoBanco;
         }
     }
 }

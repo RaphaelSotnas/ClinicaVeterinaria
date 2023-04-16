@@ -11,52 +11,64 @@ namespace ClinicaVeterinaria.Controllers
     [ApiController]
     public class ClienteController : ControllerBase
     {
-        private readonly IClienteRepository _clienteRepository;
         private readonly IClienteService _clienteService;
-        public ClienteController(IClienteRepository clienteRepository,
-                                IClienteService clienteService)
+        public ClienteController(IClienteService clienteService)
         {
-            _clienteRepository = clienteRepository;
             _clienteService = clienteService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<ClienteModel>>> BuscarClientes()
+        [Route("logar")]
+        [HttpPost]
+        public async Task<ActionResult> Logar([FromBody] ClienteModel clienteModel)
         {
-            List<ClienteModel> clientes = await _clienteRepository.BuscarClientes();
-            return Ok(clientes);
-        }
+            string retorno = await _clienteService.LogarCliente(clienteModel);
 
-        [HttpGet("{idCliente}")]
-        public async Task<ActionResult<List<ClienteModel>>> BuscarClientePorId(int idCliente)
-        {
-            ClienteModel cliente = await _clienteRepository.BuscarClientePorId(idCliente);
-            return Ok(cliente);
+            if (retorno == "Cliente inexistente" || retorno == "Senha inválida")
+                return BadRequest(new ResponseMessage { Mensagem = retorno });
+
+            return Ok(new ResponseMessage { Mensagem = retorno });
         }
 
         [HttpPost]
         public async Task<ActionResult> CadastrarCliente([FromBody] ClienteModel clienteModel)
         {
             var retorno = await _clienteService.CadastrarCliente(clienteModel);
-            if(retorno == true)
+            if (retorno == true)
                 return Ok();
 
-            return BadRequest(new ResponseTeste{Mensagem = "Cliente já cadastrado no banco de dados."});
+            return BadRequest(new ResponseMessage { Mensagem = "Cliente já cadastrado no banco de dados." });
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<ClienteModel>> AtualizarCliente([FromBody] ClienteModel clienteModel, int id)
+        [HttpGet("{cpfCliente}")]
+        public async Task<ActionResult<List<ClienteModel>>> BuscarClientePorCpf(string cpfCliente)
         {
-            clienteModel.ClienteId = id;
-            var clienteAtualizado = await _clienteRepository.AtualizarCliente(clienteModel, id);
-            return Ok(clienteAtualizado);
+            ClienteModel cliente = await _clienteService.BuscarClientePorCpf(cpfCliente);
+            return Ok(cliente);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<ClienteModel>> DeletarCliente(int id)
-        {
-            bool apagado = await _clienteRepository.DeletarCliente(id);
-            return Ok(apagado);
-        }
-    } 
+
+        //[HttpGet]
+        //public async Task<ActionResult<List<ClienteModel>>> BuscarClientes()
+        //{
+        //    List<ClienteModel> clientes = await _clienteRepository.BuscarClientes();
+        //    return Ok(clientes);
+        //}
+
+
+
+        //[HttpPut("{id}")]
+        //public async Task<ActionResult<ClienteModel>> AtualizarCliente([FromBody] ClienteModel clienteModel, int id)
+        //{
+        //    clienteModel.ClienteId = id;
+        //    var clienteAtualizado = await _clienteRepository.AtualizarCliente(clienteModel, id);
+        //    return Ok(clienteAtualizado);
+        //}
+
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<ClienteModel>> DeletarCliente(int id)
+        //{
+        //    bool apagado = await _clienteRepository.DeletarCliente(id);
+        //    return Ok(apagado);
+        //}
+    }
 }

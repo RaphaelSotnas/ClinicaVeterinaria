@@ -1,6 +1,6 @@
 ﻿namespace ClinicaVeterinaria.API
 {
-    public class ResponseTeste
+    public class ResponseMessage
     {
         public string Mensagem { get; set; }
     }

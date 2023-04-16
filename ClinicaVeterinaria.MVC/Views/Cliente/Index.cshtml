@@ -1,19 +1,33 @@
-﻿@{
+﻿@using ClinicaVeterinaria.MVC.Models.Entidades
+
+@model Cliente;
+@{
     Layout = "_LayoutDeslogado";
     ViewData["Title"] = "Login";
+    var mensagemExibir = ViewBag.mensagem;
 }
 
+@{
+    if (mensagemExibir != null)
+    {
+    <div class="alert-danger">
+                <p>@mensagemExibir</p>
+    </div>
+    }
+}
 
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1">Login</label>
-    <input type="text" class="form-control" id="login">
-  </div>
-  <div class="form-group">
-    <label for="senha">Senha</label>
-    <input type="password" class="form-control" id="Senha" placeholder="*********">
-  </div>
-  <button type="submit" class="btn btn-primary">Entrar</button>
-  <button type="submit" class="btn btn-primary" asp-controller="Cliente" asp-action="FormCadastro">Cadastrar</button>
+<form asp-controller="Cliente" asp-action="Logar">
+    <div class="mb-3">
+        <label for="cpf">CPF</label>
+        <input type="text" name="CpfCliente" class="form-control" id="cpf">
+        @Html.ValidationMessageFor(x => x.CpfCliente)
+    </div>
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" name="Senha" class="form-control" id="Senha" placeholder="*********">
+        @Html.ValidationMessageFor(x => x.Senha)
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+    <button type="submit" class="btn btn-primary" asp-controller="Cliente" asp-action="FormCadastro">Cadastrar</button>
 </form>
 

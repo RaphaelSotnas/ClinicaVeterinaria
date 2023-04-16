@@ -1,4 +1,4 @@
-using ClinicaVeterinaria.Web.Helpers;
+using ClinicaVeterinaria.Web.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,9 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
 builder.Services.AddScoped<ISessao, Sessao>();
-
 builder.Services.AddSession(o =>
 {
     o.Cookie.HttpOnly = true;

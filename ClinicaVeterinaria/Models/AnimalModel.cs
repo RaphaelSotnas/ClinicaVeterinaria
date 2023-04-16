@@ -1,4 +1,5 @@
 ﻿
+using ClinicaVeterinaria.Web.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace ClinicaVeterinaria.API.Models
@@ -14,7 +15,7 @@ namespace ClinicaVeterinaria.API.Models
         public int IdadeAnimal { get; set; }
 
         [Required]
-        public string? CategoriaAnimal { get; set; }
+        public CategoriaAnimal CategoriaAnimal { get; set; }
 
         [Required]
         public DateTime DataCadastro { get; set; }

@@ -1,5 +1,4 @@
 ﻿using ClinicaVeterinaria.API.Models;
-using ClinicaVeterinaria.Web.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace ClinicaVeterinaria.API.Models
@@ -8,18 +7,18 @@ namespace ClinicaVeterinaria.API.Models
     {
         public int ClienteId { get; set; }
 
-        [Required]
         public string? NomeCliente { get; set; }
 
         [Required]
         public string? CpfCliente { get; set; }
         
-        [Required]
         public string? Email { get; set; }
 
-        [Required]
         public DateTime DataCadastro { get; set; }
 
+        [Required]
         public string? Senha { get; set; }
+
+        public bool Admin { get; set; }
     }
 }

@@ -18,15 +18,6 @@ namespace ClinicaVeterinaria.Repository
             return await _dbContext.Clientes.ToListAsync();
         }
 
-        public async Task<ClienteModel> BuscarClientePorId(int idCliente)
-        {
-            var cliente = await _dbContext.Clientes.FirstOrDefaultAsync(x => x.ClienteId == idCliente);
-            if(cliente == null)
-                throw new Exception($"O Cliente para o ID informado: {idCliente} não existe no banco de dados.");
-
-            return cliente;
-        }
-
         public async Task<ClienteModel> CadastrarCliente(ClienteModel cliente)
         {
             await _dbContext.Clientes.AddAsync(cliente);
@@ -34,9 +25,9 @@ namespace ClinicaVeterinaria.Repository
             return cliente;
         }
 
-        public async Task<ClienteModel> AtualizarCliente(ClienteModel clienteAtualizado, int idCliente)
+        public async Task<ClienteModel> AtualizarCliente(ClienteModel clienteAtualizado, string cpfCliente)
         {
-            var clienteDoBanco = await BuscarClientePorId(idCliente);
+            var clienteDoBanco = await BuscarClientePorCpf(cpfCliente);
 
             clienteDoBanco.CpfCliente = clienteAtualizado.CpfCliente;
             clienteDoBanco.DataCadastro = clienteAtualizado.DataCadastro;
@@ -50,9 +41,9 @@ namespace ClinicaVeterinaria.Repository
             return clienteDoBanco;
         }
 
-        public async Task<bool> DeletarCliente(int idCliente)
+        public async Task<bool> DeletarCliente(string cpfCliente)
         {
-            var clienteDoBanco = await BuscarClientePorId(idCliente);
+            var clienteDoBanco = await BuscarClientePorCpf(cpfCliente);
 
             _dbContext.Clientes.Remove(clienteDoBanco);
             await _dbContext.SaveChangesAsync();
@@ -63,6 +54,11 @@ namespace ClinicaVeterinaria.Repository
         {
             var retorno = await _dbContext.Clientes.FirstOrDefaultAsync(x => x.CpfCliente == cpf);
             return retorno;
+        }
+
+        public async Task<ClienteModel> BuscarClientePorCpf(string cpf)
+        {
+            return await _dbContext.Clientes.FirstOrDefaultAsync(x => x.CpfCliente == cpf);
         }
     }
 }

@@ -59,9 +59,8 @@ namespace ClinicaVeterinaria.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnimalId"), 1L, 1);
 
-                    b.Property<string>("CategoriaAnimal")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CategoriaAnimal")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ClienteId")
                         .HasColumnType("int");
@@ -123,6 +122,9 @@ namespace ClinicaVeterinaria.API.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClienteId"), 1L, 1);
+
+                    b.Property<bool>("Admin")
+                        .HasColumnType("bit");
 
                     b.Property<string>("CpfCliente")
                         .IsRequired()

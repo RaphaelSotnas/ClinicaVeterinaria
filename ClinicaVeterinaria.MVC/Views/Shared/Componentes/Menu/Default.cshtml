@@ -1,0 +1,44 @@
+﻿@using ClinicaVeterinaria.MVC.Models.Entidades
+
+@model Cliente
+@{
+    var mensagemExibir = ViewBag.mensagem;
+}
+
+<a>Olá, @mensagemExibir</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1">
+        @{
+            if (Model.Admin == true)
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Veterinario" asp-action="ListarVeterinarios">Veterinários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Atendimento" asp-action="ListarTodosAtendimentos">Atendimentos</a>
+                </li>
+            }
+            else
+            {
+                //preciso fazer com que quando eu clique em (Meus pets), eu envie de forma anônima o id do Cliente que está na Model.
+                <li class="nav-item">
+                    <input type="hidden" value="@Model.ClienteId" name="idCliente">
+                    <a class="nav-link text-dark" asp-controller="Animal" asp-action="ListarMeusPets">Meus Pets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Agendamento" asp-action="Index">Agendar Consulta</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Atendimento" asp-action="Resultado">Atendimentos</a>
+                </li>
+            }
+        }
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Cliente" asp-action="Deslogar">Sair</a>
+        </li>
+    </ul>
+</div>

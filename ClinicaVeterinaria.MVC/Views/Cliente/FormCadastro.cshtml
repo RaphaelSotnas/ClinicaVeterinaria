@@ -1,11 +1,20 @@
 ﻿@model ClinicaVeterinaria.MVC.Models.Entidades.Cliente
 
 @{
+    Layout = "_LayoutDeslogado";
     ViewData["Title"] = "Formulário de Cadastro";
+    var mensagemExibir = ViewBag.mensagem;
 }
 
 <div class="row">
     <div class="col-md-4">
+        @{ if(mensagemExibir != null)
+            {
+                <div class="alert-danger">
+                    <p>@mensagemExibir</p>
+                </div>
+            }
+        }
         <form asp-action="Cadastrar" asp-controller="Cliente" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
