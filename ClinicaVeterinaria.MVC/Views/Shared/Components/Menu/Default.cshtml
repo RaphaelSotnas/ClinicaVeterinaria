@@ -6,7 +6,8 @@
 }
 
 <a>Olá, @mensagemExibir</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+<div id="menuSuperior">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
@@ -31,7 +32,7 @@
                     <a class="nav-link text-dark" asp-controller="Agendamento" asp-action="ListarHorariosDisponiveis">Agendar Consulta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-controller="Atendimento" asp-action="Resultado">Atendimentos</a>
+                    <a class="nav-link text-dark" asp-controller="Atendimento" asp-action="ListarAtendimentosPorIdCliente">Atendimentos</a>
                 </li>
             }
         }
@@ -39,4 +40,5 @@
             <a class="nav-link text-dark" asp-controller="Cliente" asp-action="Deslogar">Sair</a>
         </li>
     </ul>
+</div>
 </div>

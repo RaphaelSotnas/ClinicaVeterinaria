@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhbWVudG9cQWdlbmRhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Agendamento/AnimalGeriatricoErro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhbWVudG9cQW5pbWFsR2VyaWF0cmljb0Vycm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Agendamento/FormAgendarHorario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhbWVudG9cRm9ybUFnZW5kYXJIb3JhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -37,6 +41,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Animal/ListarMeusPets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXExpc3Rhck1ldXNQZXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Atendimento/ListarAtendimentosPorIdCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXRlbmRpbWVudG9cTGlzdGFyQXRlbmRpbWVudG9zUG9ySWRDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Atendimento/ListarTodosAtendimentos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXRlbmRpbWVudG9cTGlzdGFyVG9kb3NBdGVuZGltZW50b3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Cliente/FormCadastro.cshtml]

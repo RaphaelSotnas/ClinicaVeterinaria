@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ClinicaVeterinaria.Web.Models.Entidades.Atendimento>
+
+@{
+    ViewData["Title"] = "Atendimentos";
+}
+
+<h1>Meus Atendimentos</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Diagnóstico
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataAtendimento)
+            </th>
+            <th>
+                Nome Animal
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinarioNome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Diagnostico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataAtendimento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnimalNome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VeterinarioNome)
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <div>
+                Até o momento nenhum animal foi antendido.
+                Agende uma consulta com nossos especialistas.
+            </div>
+        }
+
+    </tbody>
+</table>

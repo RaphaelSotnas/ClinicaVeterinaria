@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7n5gsbgrkJtKLEx+RUbk1ceMh+/iDdNW1Kdoxwn5Bz0=",
+  "Hash": "RyDFp6F9M/LpoR2TX9y6ZJyVVoToWC6XkHExomGCT3Y=",
   "Source": "ClinicaVeterinaria.API",
   "BasePath": "_content/ClinicaVeterinaria.API",
   "Mode": "Default",
@@ -78,6 +78,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Projetos\\C#\\ClinicaVeterinaria\\ClinicaVeterinaria\\ClinicaVeterinaria.MVC\\wwwroot\\Imagens\\pets.jpg",
+      "SourceId": "ClinicaVeterinaria.Web",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Projetos\\C#\\ClinicaVeterinaria\\ClinicaVeterinaria\\ClinicaVeterinaria.MVC\\wwwroot\\",
+      "BasePath": "_content/ClinicaVeterinaria.Web",
+      "RelativePath": "Imagens/pets.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\pets.jpg"
     },
     {
       "Identity": "C:\\Projetos\\C#\\ClinicaVeterinaria\\ClinicaVeterinaria\\ClinicaVeterinaria.MVC\\wwwroot\\js\\site.js",

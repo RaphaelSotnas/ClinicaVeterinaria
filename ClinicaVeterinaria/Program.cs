@@ -1,11 +1,10 @@
 using ClinicaVeterinaria.API.Repository;
-using ClinicaVeterinaria.API.Repository.Interfaces;
 using ClinicaVeterinaria.API.Data;
 using ClinicaVeterinaria.Repository;
-using ClinicaVeterinaria.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using ClinicaVeterinaria.API.Services;
 using ClinicaVeterinaria.API.Repository.Interfaces.Interf.Services;
+using ClinicaVeterinaria.API.Domain.Interfaces.InterfacesRepository;
 
 namespace ClinicaVeterinaria
 {
@@ -37,6 +36,7 @@ namespace ClinicaVeterinaria
             builder.Services.AddScoped<IAnimalService, AnimalService>();
             builder.Services.AddScoped<IVeterinarioService, VeterinarioService>();
             builder.Services.AddScoped<IAgendamentoService, AgendamentoService>();
+            builder.Services.AddScoped<IAtendimentoService, AtendimentoService>();
 
             var app = builder.Build();
 

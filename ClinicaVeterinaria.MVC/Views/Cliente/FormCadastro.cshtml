@@ -4,14 +4,24 @@
     Layout = "_LayoutDeslogado";
     ViewData["Title"] = "Formulário de Cadastro";
     var mensagemExibir = ViewBag.mensagem;
+    var mensagemErro = ViewBag.mensagemErro;
 }
 
 <div class="row">
     <div class="col-md-4">
-        @{ if(mensagemExibir != null)
+        @{
+            if (mensagemExibir != null)
             {
                 <div class="alert-danger">
                     <p>@mensagemExibir</p>
+                </div>
+            }
+        }
+        @{
+            if (mensagemErro != null)
+            {
+                <div class="alert-danger">
+                    <p>@mensagemErro</p>
                 </div>
             }
         }
@@ -34,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Senha" class="control-label">Senha</label>
-                <input asp-for="Senha" type="password" name="Senha" class="form-control"/>
+                <input asp-for="Senha" type="password" name="Senha" class="form-control" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,5 +59,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
