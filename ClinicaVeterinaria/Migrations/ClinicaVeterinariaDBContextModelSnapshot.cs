@@ -30,13 +30,22 @@ namespace ClinicaVeterinaria.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AgendamentoId"), 1L, 1);
 
+                    b.Property<int>("AnimalId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataConsulta")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("VeterinarioId")
+                    b.Property<bool>("Disponivel")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("VeterinarioGeriatrico")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("VeterinarioId")
                         .HasColumnType("int");
 
                     b.Property<string>("VeterinarioNome")
@@ -45,6 +54,8 @@ namespace ClinicaVeterinaria.API.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.HasKey("AgendamentoId");
+
+                    b.HasIndex("AnimalId");
 
                     b.HasIndex("VeterinarioId");
 
@@ -153,26 +164,6 @@ namespace ClinicaVeterinaria.API.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("ClinicaVeterinaria.API.Models.TipoAnimalModel", b =>
-                {
-                    b.Property<int>("TipoAnimalId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TipoAnimalId"), 1L, 1);
-
-                    b.Property<string>("CategoriaAnimal")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("TipoAnimalId");
-
-                    b.ToTable("TiposDeAnimais");
-                });
-
             modelBuilder.Entity("ClinicaVeterinaria.API.Models.VeterinarioModel", b =>
                 {
                     b.Property<int>("VeterinarioId")
@@ -202,9 +193,19 @@ namespace ClinicaVeterinaria.API.Migrations
 
             modelBuilder.Entity("ClinicaVeterinaria.API.Models.AgendamentoModel", b =>
                 {
+                    b.HasOne("ClinicaVeterinaria.API.Models.AnimalModel", "Animal")
+                        .WithMany()
+                        .HasForeignKey("AnimalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ClinicaVeterinaria.API.Models.VeterinarioModel", "Veterinario")
                         .WithMany()
-                        .HasForeignKey("VeterinarioId");
+                        .HasForeignKey("VeterinarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Animal");
 
                     b.Navigation("Veterinario");
                 });

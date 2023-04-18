@@ -1,6 +1,6 @@
 ﻿using ClinicaVeterinaria.API.Models;
 
-namespace ClinicaVeterinaria.API.Repository.Interfaces
+namespace ClinicaVeterinaria.API.Repository.Interfaces.Interf.Services
 {
     public interface IClienteService
     {
@@ -9,5 +9,7 @@ namespace ClinicaVeterinaria.API.Repository.Interfaces
         public Task<string> LogarCliente(ClienteModel clienteModel);
 
         public Task<ClienteModel> BuscarClientePorCpf(string cpfCliente);
+
+        public Task<bool> IsCpf(string cpfCliente);
     }
 }

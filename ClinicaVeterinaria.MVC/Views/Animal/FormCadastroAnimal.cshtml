@@ -1,0 +1,46 @@
+﻿@model ClinicaVeterinaria.Web.Models.Entidades.Animal
+
+@{
+    ViewData["Title"] = "Cadastrando Animal";
+}
+
+<h1>Preencha as informações</h1>
+
+<h4>Animal</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CadastrarAnimal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeAnimal" class="control-label">Nome do Pet?</label>
+                <input asp-for="NomeAnimal" class="form-control" />
+                <span asp-validation-for="NomeAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdadeAnimal" class="control-label">Idade</label>
+                <input asp-for="IdadeAnimal" class="form-control" />
+                <span asp-validation-for="IdadeAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Qual categoria?</label>
+                <select name="CategoriaAnimal">
+                    <option selected>--Escolha--</option>
+                    <option value="Cachorro">Cachorro</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Hamster">Hamster</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar Animal" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListarMeusPets">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

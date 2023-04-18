@@ -8,9 +8,9 @@ namespace ClinicaVeterinaria.Web.Enum
         Cachorro = 1,
 
         [Description("Gato")]
-        Gato,
+        Gato = 2,
 
-        [Description("Hasmter")]
-        Hasmter
+        [Description("Hamster")]
+        Hamster = 3
     }
 }

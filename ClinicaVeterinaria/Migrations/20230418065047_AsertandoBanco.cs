@@ -4,23 +4,24 @@
 
 namespace ClinicaVeterinaria.API.Migrations
 {
-    public partial class AtualizandoClienteModel : Migration
+    public partial class AsertandoBanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "Admin",
-                table: "Clientes",
-                type: "bit",
+            migrationBuilder.AddColumn<string>(
+                name: "VeterinarioNome",
+                table: "Agendamento",
+                type: "nvarchar(255)",
+                maxLength: 255,
                 nullable: false,
-                defaultValue: false);
+                defaultValue: "");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Admin",
-                table: "Clientes");
+                name: "VeterinarioNome",
+                table: "Agendamento");
         }
     }
 }

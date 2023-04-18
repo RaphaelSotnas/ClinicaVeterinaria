@@ -1,5 +1,5 @@
 ﻿using ClinicaVeterinaria.API.Models;
-using ClinicaVeterinaria.API.Repository.Interfaces;
+using ClinicaVeterinaria.API.Repository.Interfaces.Interf.Services;
 using ClinicaVeterinaria.Repository.Interfaces;
 
 namespace ClinicaVeterinaria.API.Services
@@ -16,9 +16,30 @@ namespace ClinicaVeterinaria.API.Services
         {
             var listaRetorno = await _animalRepository.BuscarAnimaisPorIdCliente(idCliente);
             if (listaRetorno == null || listaRetorno.Count() == 0)
-                return null; // Melhorar validação para retornar uma mensagem: "Você ainda não possui PETs cadastrados em nosso site."
+                return null;
 
             return listaRetorno;
+        }
+
+        public async Task<bool> DeletarAnimal(int idAnimal)
+        {
+            var animalApagado = await _animalRepository.DeletarAnimal(idAnimal);
+
+            return animalApagado;
+        }
+
+        public async Task<AnimalModel> CadastrarAnimal(AnimalModel animal)
+        {
+            animal.Geriatria = (animal.CategoriaAnimal == Web.Enum.CategoriaAnimal.Cachorro ||
+            animal.CategoriaAnimal == Web.Enum.CategoriaAnimal.Gato) ?
+            (animal.IdadeAnimal >= 7 ?
+            true : false) :
+            (animal.IdadeAnimal >= 2 ?
+            true : false);
+
+            animal.DataCadastro = DateTime.Now;
+
+            return await _animalRepository.CadastrarAnimal(animal);
         }
     }
 }

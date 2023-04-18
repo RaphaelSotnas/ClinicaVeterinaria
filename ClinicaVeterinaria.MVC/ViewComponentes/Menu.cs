@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace ClinicaVeterinaria.Web.ViewComponentes
+namespace ClinicaVeterinaria.Web.ViewComponents
 {
     public class Menu : ViewComponent
     {
@@ -14,7 +14,7 @@ namespace ClinicaVeterinaria.Web.ViewComponentes
 
             Cliente cliente = JsonConvert.DeserializeObject<Cliente>(sessaoClienteLogado); 
 
-            return View("/Views/Shared/Componentes/Menu/Default.cshtml");
+            return View(cliente);
         }
     }
 }

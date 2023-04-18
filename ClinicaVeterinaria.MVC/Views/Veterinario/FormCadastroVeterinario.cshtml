@@ -1,0 +1,43 @@
+﻿@model ClinicaVeterinaria.Web.Models.Entidades.Veterinario
+
+@{
+    ViewData["Title"] = "Cadastro Veterinario";
+}
+
+<h1>Cadastro Veterinario</h1>
+
+<h4>Veterinario</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CadastrarVeterinario">
+            <div class="form-group">
+                <label asp-for="NomeVeterinario" class="control-label">Nome do veterinário</label>
+                <input asp-for="NomeVeterinario" class="form-control" />
+                <span asp-validation-for="NomeVeterinario" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+            <label class="form-check-label">O profissinal possui especialidade em geriatria?</label>
+                <select name="Geriatria">
+                    <option selected>--Escolha--</option>
+                    <option value="true">Sim</option>
+                    <option value="False">Não</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataContratacao" class="control-label">Data da Contratação do profissional</label>
+                <input asp-for="DataContratacao" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListarVeterinarios">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

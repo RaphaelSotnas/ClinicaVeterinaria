@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ClinicaVeterinaria.API.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class CriandoBanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,8 @@ namespace ClinicaVeterinaria.API.Migrations
                     CpfCliente = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Admin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,7 +65,7 @@ namespace ClinicaVeterinaria.API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NomeAnimal = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     IdadeAnimal = table.Column<int>(type: "int", nullable: false),
-                    CategoriaAnimal = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CategoriaAnimal = table.Column<int>(type: "int", nullable: false),
                     DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Geriatria = table.Column<bool>(type: "bit", nullable: false),
                     ClienteId = table.Column<int>(type: "int", nullable: true)
@@ -77,27 +78,6 @@ namespace ClinicaVeterinaria.API.Migrations
                         column: x => x.ClienteId,
                         principalTable: "Clientes",
                         principalColumn: "ClienteId");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Agendamento",
-                columns: table => new
-                {
-                    AgendamentoId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DataConsulta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    VeterinarioNome = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    VeterinarioId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Agendamento", x => x.AgendamentoId);
-                    table.ForeignKey(
-                        name: "FK_Agendamento_Veterinarios_VeterinarioId",
-                        column: x => x.VeterinarioId,
-                        principalTable: "Veterinarios",
-                        principalColumn: "VeterinarioId");
                 });
 
             migrationBuilder.CreateTable(
@@ -121,6 +101,41 @@ namespace ClinicaVeterinaria.API.Migrations
                         principalColumn: "VeterinarioId");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Agendamento",
+                columns: table => new
+                {
+                    AgendamentoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DataConsulta = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    VeterinarioNome = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    VeterinarioGeriatria = table.Column<bool>(type: "bit", nullable: false),
+                    VeterinarioId = table.Column<int>(type: "int", nullable: true),
+                    Disponivel = table.Column<bool>(type: "bit", nullable: false),
+                    AnimalNome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AnimalId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Agendamento", x => x.AgendamentoId);
+                    table.ForeignKey(
+                        name: "FK_Agendamento_Animais_AnimalId",
+                        column: x => x.AnimalId,
+                        principalTable: "Animais",
+                        principalColumn: "AnimalId");
+                    table.ForeignKey(
+                        name: "FK_Agendamento_Veterinarios_VeterinarioId",
+                        column: x => x.VeterinarioId,
+                        principalTable: "Veterinarios",
+                        principalColumn: "VeterinarioId");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Agendamento_AnimalId",
+                table: "Agendamento",
+                column: "AnimalId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Agendamento_VeterinarioId",
                 table: "Agendamento",
@@ -143,19 +158,19 @@ namespace ClinicaVeterinaria.API.Migrations
                 name: "Agendamento");
 
             migrationBuilder.DropTable(
-                name: "Animais");
-
-            migrationBuilder.DropTable(
                 name: "Atendimento");
 
             migrationBuilder.DropTable(
                 name: "TiposDeAnimais");
 
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "Animais");
 
             migrationBuilder.DropTable(
                 name: "Veterinarios");
+
+            migrationBuilder.DropTable(
+                name: "Clientes");
         }
     }
 }

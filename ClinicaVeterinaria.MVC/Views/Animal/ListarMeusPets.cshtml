@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<ClinicaVeterinaria.Web.Models.Entidades.Animal>
 
 @{
-    ViewData["Title"] = "ListarMeusPets";
+    ViewData["Title"] = "Listar Pets";
 }
 
-<h1>ListarMeusPets</h1>
+<h1>Meus Pets</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller="Animal" asp-action="FormCadastroAnimal">Cadastrar novo animal</a>
 </p>
 <table class="table">
     <thead>
@@ -19,29 +19,55 @@
                 @Html.DisplayNameFor(model => model.IdadeAnimal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoriaAnimal.ToString())
+                @Html.DisplayNameFor(model => model.CategoriaAnimal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Geriatria)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeAnimal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdadeAnimal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoriaAnimal.ToString())
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeAnimal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdadeAnimal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoriaAnimal)
+                    </td>
+                    <td>
+                        @{
+                            var geriatria = Convert.ToString(item.Geriatria);
+                            if (item.Geriatria == false)
+                            {
+                                geriatria = "Não";
+                                @Html.DisplayFor(modelItem => geriatria)
+                            }
+                            else
+                            {
+                                geriatria = "Sim";
+                                @Html.DisplayFor(modelItem => geriatria)
+                            }
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Deletar", "DeletarAnimal", new {animalId = item.AnimalId})
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <h3>
+                Você ainda não possui Pets cadastrados em nossa loja
+            </h3>
+        }
     </tbody>
 </table>

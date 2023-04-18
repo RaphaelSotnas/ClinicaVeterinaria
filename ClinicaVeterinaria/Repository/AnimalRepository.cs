@@ -19,26 +19,34 @@ namespace ClinicaVeterinaria.Repository
 
             return listaAnimais;
         }
+        public async Task<bool> DeletarAnimal(int idAnimal)
+        {
+            var animalDoBanco = await BuscarAnimalPorId(idAnimal);
+
+            _dbContext.Animais.Remove(animalDoBanco);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<AnimalModel> BuscarAnimalPorId(int idAnimal)
+        {
+            var animal = await _dbContext.Animais.FirstOrDefaultAsync(x => x.AnimalId == idAnimal);
+            if (animal == null)
+                throw new Exception($"O animal para o ID informado: {idAnimal} não existe no banco de dados.");
+
+            return animal;
+        }
+
+        public async Task<AnimalModel> CadastrarAnimal(AnimalModel animal)
+        {
+            await _dbContext.Animais.AddAsync(animal);
+            await _dbContext.SaveChangesAsync();
+            return animal;
+        }
 
         //public async Task<List<AnimalModel>> BuscarAnimais()
         //{
         //    return await _dbContext.Animais.ToListAsync();
-        //}
-
-        //public async Task<AnimalModel> BuscarAnimalPorId(int idAnimal)
-        //{
-        //    var animal = await _dbContext.Animais.FirstOrDefaultAsync(x => x.AnimalId == idAnimal);
-        //    if(animal == null)
-        //        throw new Exception($"O animal para o ID informado: {idAnimal} não existe no banco de dados.");
-
-        //    return animal;
-        //}
-
-        //public async Task<AnimalModel> CadastrarAnimal(AnimalModel animal)
-        //{
-        //    await _dbContext.Animais.AddAsync(animal);
-        //    await _dbContext.SaveChangesAsync();
-        //    return animal;
         //}
 
         //public async Task<AnimalModel> AtualizarAnimal(AnimalModel animalAtualizado, int idAnimal)
@@ -55,15 +63,6 @@ namespace ClinicaVeterinaria.Repository
         //    _dbContext.Animais.Update(animalDoBanco);
         //    await _dbContext.SaveChangesAsync();
         //    return animalDoBanco;
-        //}
-
-        //public async Task<bool> DeletarAnimal(int idAnimal)
-        //{
-        //    var animalDoBanco = await BuscarAnimalPorId(idAnimal);
-
-        //    _dbContext.Animais.Remove(animalDoBanco);
-        //    await _dbContext.SaveChangesAsync();
-        //    return true;
         //}
     }
 }

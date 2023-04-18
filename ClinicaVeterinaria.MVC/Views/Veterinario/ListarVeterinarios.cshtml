@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ClinicaVeterinaria.Web.Models.Entidades.Veterinario>
+
+@{
+    ViewData["Title"] = "Listar Veterinarios";
+}
+
+<h1>Veterinarios</h1>
+
+<p>
+    <a asp-action="FormCadastroVeterinario">Cadastrar novo veterinário</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeVeterinario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Geriatria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataContratacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeVeterinario)
+                    </td>
+                    <td>
+                        @{
+                            var geriatria = Convert.ToString(item.Geriatria);
+                            if (item.Geriatria == false)
+                            {
+                                geriatria = "Não";
+                                @Html.DisplayFor(modelItem => geriatria)
+                            }
+                            else
+                            {
+                                geriatria = "Sim";
+                                @Html.DisplayFor(modelItem => geriatria)
+                            }
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataContratacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeletarVeterinario", new {veterinarioId = item.VeterinarioId})
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <h3>
+                Você ainda não possuimos veterinários cadastrados em nossa loja.
+            </h3>
+        }
+    </tbody>
+</table>

@@ -18,5 +18,7 @@ namespace ClinicaVeterinaria.Web.Models.Entidades
         public DateTime DataCadastro { get; set; }
 
         public bool Geriatria { get; set; }
+
+        public int ClienteId { get; set; }
     }
 }

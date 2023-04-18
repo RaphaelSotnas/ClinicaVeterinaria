@@ -1,4 +1,5 @@
 ﻿using ClinicaVeterinaria.API.Models;
+using ClinicaVeterinaria.API.Repository.Interfaces.Interf.Services;
 using ClinicaVeterinaria.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,30 +10,44 @@ namespace ClinicaVeterinaria.Controllers
     [ApiController]
     public class VeterinarioController : ControllerBase
     {
-        //private readonly IVeterinarioRepository _veterinarioRepository;
-        //public VeterinarioController(IVeterinarioRepository veterinarioRepository)
-        //{
-        //    _veterinarioRepository = veterinarioRepository;
-        //}
+        private readonly IVeterinarioService _veterinarioService;
+        public VeterinarioController(IVeterinarioService veterinarioService)
+        {
+            _veterinarioService = veterinarioService;
+        }
 
-        //[HttpGet]
-        //public async Task<ActionResult<List<VeterinarioModel>>> ListarVeterinarios()
-        //{
-        //    List<VeterinarioModel> veterinarios = await _veterinarioRepository.BuscarVeterinarios();
-        //    return Ok(veterinarios);
-        //}
+        [HttpGet]
+        public async Task<ActionResult<List<VeterinarioModel>>> ListarVeterinarios()
+        {
+            List<VeterinarioModel> veterinarios = await _veterinarioService.ListarVeterinarios();
+            return Ok(veterinarios);
+        }
 
-        //[HttpGet("{veterinarioId}")]
-        //public async Task<ActionResult<List<VeterinarioModel>>> BuscarVeterinarioPorId(int veterinarioId)
-        //{
-        //    VeterinarioModel veterinario = await _veterinarioRepository.BuscarVeterinarioPorId(veterinarioId);
-        //    return Ok(veterinario);
-        //}
+        [HttpPost]
+        public async Task<ActionResult<VeterinarioModel>> CadastrarVeterinario([FromBody] VeterinarioModel veterinarioModel)
+        {
+            var veterinario = await _veterinarioService.CadastrarVeterinario(veterinarioModel);
+            return Ok(veterinario);
+        }
 
-        //[HttpPost]
-        //public async Task<ActionResult<VeterinarioModel>> CadastrarVeterinario([FromBody] VeterinarioModel veterinarioModel)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<VeterinarioModel>> DeletarVeterinario(int id)
+        {
+            bool apagado = await _veterinarioService.DeletarVeterinario(id);
+            return Ok(apagado);
+        }
+
+        [HttpGet("{veterinarioId}")]
+        public async Task<ActionResult<VeterinarioModel>> BuscarVeterinarioPorId(int veterinarioId)
+        {
+            VeterinarioModel veterinario = await _veterinarioService.BuscarVeterinarioPorId(veterinarioId);
+            return Ok(veterinario);
+        }
+
+        //[HttpGet("{nomeVeterinario}")]
+        //public async Task<ActionResult<VeterinarioModel>> BuscarVeterinarioPeloNome(string nomeVeterinario)
         //{
-        //    var veterinario = await _veterinarioRepository.CadastrarVeterinario(veterinarioModel);
+        //    VeterinarioModel veterinario = await _veterinarioService.BuscarVeterinarioPeloNome(nomeVeterinario);
         //    return Ok(veterinario);
         //}
 
@@ -43,14 +58,5 @@ namespace ClinicaVeterinaria.Controllers
         //    var veterinarioAtualizado = await _veterinarioRepository.AtualizarVeterinario(veterinarioModel, id);
         //    return Ok(veterinarioAtualizado);
         //}
-
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult<VeterinarioModel>> DeletarVeterinario(int id)
-        //{
-        //    bool apagado = await _veterinarioRepository.DeletarVeterinario(id);
-        //    return Ok(apagado);
-        //}
-
-
     }
 }

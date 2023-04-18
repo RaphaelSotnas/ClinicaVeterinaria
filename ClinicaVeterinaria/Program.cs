@@ -5,6 +5,7 @@ using ClinicaVeterinaria.Repository;
 using ClinicaVeterinaria.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using ClinicaVeterinaria.API.Services;
+using ClinicaVeterinaria.API.Repository.Interfaces.Interf.Services;
 
 namespace ClinicaVeterinaria
 {
@@ -31,8 +32,12 @@ namespace ClinicaVeterinaria
             builder.Services.AddScoped<IVeterinarioRepository, VeterinarioRepository>();
             builder.Services.AddScoped<IAgendamentoRepository, AgendamentoRepository>();
             builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
-            builder.Services.AddScoped<ITipoAnimalRepository, TipoAnimalRepository>();
+
             builder.Services.AddScoped<IClienteService, ClienteService>();
+            builder.Services.AddScoped<IAnimalService, AnimalService>();
+            builder.Services.AddScoped<IVeterinarioService, VeterinarioService>();
+            builder.Services.AddScoped<IAgendamentoService, AgendamentoService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

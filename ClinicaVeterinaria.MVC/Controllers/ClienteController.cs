@@ -30,6 +30,7 @@ namespace ClinicaVeterinaria.MVC.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> Cadastrar(Cliente cliente)
         {
             try
@@ -51,7 +52,6 @@ namespace ClinicaVeterinaria.MVC.Controllers
             {
                 throw erro;
             }
-            return View();
         }
 
         public async Task<IActionResult> Logar(Cliente cliente)
@@ -75,7 +75,7 @@ namespace ClinicaVeterinaria.MVC.Controllers
                     }
 
                     ViewBag.mensagem = mensagemDeserialize.Mensagem;
-                    _sessao.CriarSessaoCliente(cliente);
+                    _sessao.CriarSessaoCliente(clienteDeserialize);
                     
                     return View("/Views/Cliente/Home.cshtml", clienteDeserialize);
                 }

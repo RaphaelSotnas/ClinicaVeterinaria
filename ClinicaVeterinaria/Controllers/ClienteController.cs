@@ -1,6 +1,6 @@
 ﻿using ClinicaVeterinaria.API;
 using ClinicaVeterinaria.API.Models;
-using ClinicaVeterinaria.API.Repository.Interfaces;
+using ClinicaVeterinaria.API.Repository.Interfaces.Interf.Services;
 using ClinicaVeterinaria.API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +32,10 @@ namespace ClinicaVeterinaria.Controllers
         [HttpPost]
         public async Task<ActionResult> CadastrarCliente([FromBody] ClienteModel clienteModel)
         {
+            var cpfValido = await _clienteService.IsCpf(clienteModel.CpfCliente);
+            if (!cpfValido)
+                return BadRequest(new ResponseMessage { Mensagem = "O CPF informado não é válido." });
+
             var retorno = await _clienteService.CadastrarCliente(clienteModel);
             if (retorno == true)
                 return Ok();
@@ -45,7 +49,6 @@ namespace ClinicaVeterinaria.Controllers
             ClienteModel cliente = await _clienteService.BuscarClientePorCpf(cpfCliente);
             return Ok(cliente);
         }
-
 
         //[HttpGet]
         //public async Task<ActionResult<List<ClienteModel>>> BuscarClientes()

@@ -15,6 +15,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Projetos\C#\ClinicaVeterinaria\ClinicaVeterinaria\ClinicaVeterinaria.MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Agendamento/Agendado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhbWVudG9cQWdlbmRhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Agendamento/FormAgendarHorario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhbWVudG9cRm9ybUFnZW5kYXJIb3JhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Agendamento/ListarHorariosDisponiveis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhbWVudG9cTGlzdGFySG9yYXJpb3NEaXNwb25pdmVpcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Animal/DeletarAnimal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXERlbGV0YXJBbmltYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Animal/FormCadastroAnimal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXEZvcm1DYWRhc3Ryb0FuaW1hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Animal/ListarMeusPets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXExpc3Rhck1ldXNQZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -31,8 +51,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Shared/Componentes/Menu/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudGVzXE1lbnVcRGVmYXVsdC5jc2h0bWw=
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/PaginaErro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnaW5hRXJyby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Shared/Components/Menu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Shared/Error.cshtml]
@@ -41,6 +65,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Veterinario/DeletarVeterinario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9cRGVsZXRhclZldGVyaW5hcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Veterinario/FormCadastroVeterinario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9cRm9ybUNhZGFzdHJvVmV0ZXJpbmFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/Veterinario/ListarVeterinarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9cTGlzdGFyVmV0ZXJpbmFyaW9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/C\#/ClinicaVeterinaria/ClinicaVeterinaria/ClinicaVeterinaria.MVC/Views/_ViewImports.cshtml]

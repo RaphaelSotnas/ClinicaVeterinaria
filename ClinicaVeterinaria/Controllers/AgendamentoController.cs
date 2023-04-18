@@ -1,4 +1,5 @@
 ﻿using ClinicaVeterinaria.API.Models;
+using ClinicaVeterinaria.API.Repository.Interfaces.Interf.Services;
 using ClinicaVeterinaria.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,32 +10,33 @@ namespace ClinicaVeterinaria.Controllers
     [ApiController]
     public class AgendamentoController : ControllerBase
     {
-        //private readonly IAgendamentoRepository _agendamentoRepository;
-        //public AgendamentoController(IAgendamentoRepository agendamentoRepository)
-        //{
-        //    _agendamentoRepository = agendamentoRepository;
-        //}
+        private readonly IAgendamentoService _agendamentoService;
+        public AgendamentoController(IAgendamentoService agendamentoService)
+        {
+            _agendamentoService = agendamentoService;
+        }
 
-        //[HttpGet]
-        //public async Task<ActionResult<List<AgendamentoModel>>> ListarAgendamentos()
-        //{
-        //    List<AgendamentoModel> agendamentos = await _agendamentoRepository.ListarAgendamentos();
-        //    return Ok(agendamentos);
-        //}
+        [HttpGet]
+        public async Task<ActionResult<List<AgendamentoModel>>> ListarHorariosDisponiveis()
+        {
+            List<AgendamentoModel> horariosDisponiveis = await _agendamentoService.ListarHorariosDisponiveis();
+            return Ok(horariosDisponiveis);
+        }
 
-        //[HttpGet("{agendamentoId}")]
-        //public async Task<ActionResult<List<AgendamentoModel>>> BuscarAgendamentoPorId(int agendamentoId)
-        //{
-        //    AgendamentoModel agendamento = await _agendamentoRepository.BuscarAgendamentoPorId(agendamentoId);
-        //    return Ok(agendamento);
-        //}
+        [HttpPost]
+        public async Task<ActionResult<AgendamentoModel>> AgendarConsulta([FromBody] AgendamentoModel agendamentoAtualizado)
+        {
+            var agendamento = await _agendamentoService.AgendarConsulta(agendamentoAtualizado);
+            return Ok(agendamento);
+        }
 
-        //[HttpPost]
-        //public async Task<ActionResult<AgendamentoModel>> CadastrarConsulta([FromBody] AgendamentoModel agendamentoModel)
-        //{
-        //    var agendamento = await _agendamentoRepository.CadastrarConsulta(agendamentoModel);
-        //    return Ok(agendamento);
-        //}
+        [HttpGet("{agendamentoId}")]
+        public async Task<ActionResult<List<AgendamentoModel>>> BuscarAgendamentoPorId(int agendamentoId)
+        {
+            AgendamentoModel agendamento = await _agendamentoService.BuscarAgendamentoPorId(agendamentoId);
+            return Ok(agendamento);
+        }
+
 
         //[HttpPut("{id}")]
         //public async Task<ActionResult<AgendamentoModel>> AtualizarAnimal([FromBody] AgendamentoModel agendamentoModel, int id)

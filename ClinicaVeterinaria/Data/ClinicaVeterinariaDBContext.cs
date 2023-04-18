@@ -22,8 +22,6 @@ namespace ClinicaVeterinaria.API.Data
 
         public DbSet<AgendamentoModel> Agendamento { get; set; }
 
-        public DbSet<TipoAnimalModel> TiposDeAnimais { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AnimalMap());
@@ -31,7 +29,6 @@ namespace ClinicaVeterinaria.API.Data
             modelBuilder.ApplyConfiguration(new VeterinarioMap());
             modelBuilder.ApplyConfiguration(new AgendamentoMap());
             modelBuilder.ApplyConfiguration(new AtendimentoMap());
-            modelBuilder.ApplyConfiguration(new TipoAnimalMap());
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ClinicaVeterinaria.Web.Models.Entidades.Agendamento>
+
+@{
+    ViewData["Title"] = "Agenda de Horarios";
+}
+
+<h1>Agenda de Horários</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataConsulta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinarioNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinarioGeriatrico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponivel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataConsulta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VeterinarioNome)
+                </td>
+                @if (item.VeterinarioGeriatrico == true)
+                {
+                    <td>
+                        Sim
+                    </td>
+                }
+                else
+                {
+                    <td>Não</td>
+                }
+                @if (item.Disponivel == true)
+                {
+                    <td>
+                        Disponível
+                    </td>
+                    <td>
+                        @Html.ActionLink("Agendar", "FormAgendarHorario", new { agendamentoId = item.AgendamentoId })
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Não disponível
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

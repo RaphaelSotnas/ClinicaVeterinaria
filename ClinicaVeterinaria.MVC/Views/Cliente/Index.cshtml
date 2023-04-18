@@ -20,12 +20,12 @@
     <div class="mb-3">
         <label for="cpf">CPF</label>
         <input type="text" name="CpfCliente" class="form-control" id="cpf">
-        @Html.ValidationMessageFor(x => x.CpfCliente)
+         <span asp-validation-for="CpfCliente" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label for="senha">Senha</label>
         <input type="password" name="Senha" class="form-control" id="Senha" placeholder="*********">
-        @Html.ValidationMessageFor(x => x.Senha)
+        <span asp-validation-for="Senha" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Entrar</button>
     <button type="submit" class="btn btn-primary" asp-controller="Cliente" asp-action="FormCadastro">Cadastrar</button>

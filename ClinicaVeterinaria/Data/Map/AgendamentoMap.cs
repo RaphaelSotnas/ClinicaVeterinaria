@@ -12,8 +12,14 @@ namespace ClinicaVeterinaria.Data.Map
             builder.Property(x => x.DataConsulta).IsRequired();
             builder.Property(x => x.DataCadastro).IsRequired();
             builder.Property(x => x.VeterinarioNome).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.Disponivel);
+            builder.Property(x => x.VeterinarioId);
+            builder.Property(x => x.AnimalId);
+            //builder.Property(x => x.AnimalNome).IsRequired().HasMaxLength(100);
+            //builder.Property(x => x.VeterinarioGeriatria).IsRequired();
 
             builder.HasOne(x => x.Veterinario);
+            builder.HasOne(x => x.Animal);
         }
     }
 }
